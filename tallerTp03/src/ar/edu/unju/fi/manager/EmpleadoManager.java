@@ -158,26 +158,7 @@ public class EmpleadoManager {
      * 
      * @param scanner El objeto Scanner para la entrada de datos del usuario.
      */
-   /* public void calcularImporteNetoPorEdad(Scanner scanner) {
-        System.out.println("Ingrese una edad mínima para calcular el importe neto acumulado:");
-        int edadMinima = scanner.nextInt();
-
-        FechaUtil fechaUtil = new FechaUtil();
-
-        double totalImporteNeto = empleados.stream()
-            .filter(empleado -> fechaUtil.calcularEdad(empleado.getFechaNacimiento()) >= edadMinima)
-            .mapToDouble(Empleado::getSueldoNeto) // Acumular el sueldo neto
-            .sum();
-
-        System.out.println("El importe neto acumulado de los empleados con edad mayor o igual a " 
-                           + edadMinima + " años es: " + totalImporteNeto);
-    }
-    
-    /**
-     * Muestra el sueldo neto de los empleados con antigüedad menor o igual a 2 años,
-     * aplicando un incremento temporal del 10% al sueldo básico.
-     */
-    
+   
     public void calcularImporteNetoPorEdad(Scanner scanner) {
         System.out.println("Ingrese una edad mínima para calcular el importe neto acumulado:");
         int edadMinima = scanner.nextInt();
@@ -198,6 +179,11 @@ public class EmpleadoManager {
                            + edadMinima + " años es: " + totalImporteNeto);
     }
     
+    
+    /**
+     * Muestra el sueldo neto de los empleados con antigüedad menor o igual a 2 años,
+     * aplicando un incremento temporal del 10% al sueldo básico.        
+    */   
     
     public void mostrarIncrementoTemporal() {
         System.out.println("Aplicando incremento temporal del 10% al sueldo básico de empleados con antigüedad <= 2 años...");
