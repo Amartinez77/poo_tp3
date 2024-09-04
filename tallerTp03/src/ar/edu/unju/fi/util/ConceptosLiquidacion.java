@@ -13,13 +13,11 @@ import java.util.Map;
  */
 public class ConceptosLiquidacion {
 
-    // Sueldo básico para todos los empleados
+    
     public static final double SUELDO_BASICO = 150000;
-
-    // Adicional por antigüedad en años
+    
     public static final double ADICIONAL_ANTIGUEDAD = 7000;
-
-    // Adicional por cada hijo
+    
     public static final double ADICIONAL_HIJO = 8000;
 
     // Ruta del archivo que contiene las categorías y sus valores
@@ -34,6 +32,7 @@ public class ConceptosLiquidacion {
      * @return Un mapa donde la clave es el número de categoría y el valor es el monto asociado.
      */
     public  static Map<Integer, Double> cargarCategorias() {
+    	
         Map<Integer, Double> categorias = new HashMap<>();
         String linea;
 
