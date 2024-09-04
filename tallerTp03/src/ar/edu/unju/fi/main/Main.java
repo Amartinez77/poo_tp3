@@ -1,9 +1,9 @@
-package ar.unju.edu.fi.main;
+package ar.edu.unju.fi.main;
 
 
 
-import ar.unju.edu.fi.manager.EmpleadoManager;
-import ar.unju.edu.fi.manager.MenuManager;
+import ar.edu.unju.fi.manager.EmpleadoManager;
+import ar.edu.unju.fi.manager.MenuManager;
 
 public class Main {
 	
