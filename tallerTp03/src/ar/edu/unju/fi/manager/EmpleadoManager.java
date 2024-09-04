@@ -13,8 +13,11 @@ import ar.edu.unju.fi.util.Totales;
 import java.util.ArrayList;
 
 public class EmpleadoManager {
+	
     private List<Empleado> empleados = new ArrayList<>();
 
+    
+    
     /**
      * Agrega un empleado a la lista de empleados y calcula su sueldo.
      * 
