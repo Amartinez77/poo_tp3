@@ -64,12 +64,38 @@ public class EmpleadoManager {
         // Crear empleados administrativos
         empleados.add(new Administrativo("A001", 123, "Juan Pérez", 2, "01-01-1980", 5, 3));
         empleados.add(new Administrativo("A002", 124, "Ana Gómez", 1, "15-05-1985", 3, 7));
-        empleados.add(new Administrativo("A003", 125, "Ariel Martinez", 2, "10-03-2000", 3, 7));
+        empleados.add(new Administrativo("A003", 125, "Ariel Martinez", 2, "10-03-2000", 3, 7));        
+        empleados.add(new Administrativo("A004", 126, "Claudia Iriarte", 3, "01-01-1991", 12, 15));
+        empleados.add(new Administrativo("A005", 127, "Ramiro Calizaya", 0, "15-07-1996", 9, 13));
+        empleados.add(new Administrativo("A006", 128, "Claudio Martinich", 0, "10-03-2002", 1, 1));
+        empleados.add(new Administrativo("A007", 129, "Laura Martinez", 0, "10-03-2003", 1, 1));        
+        empleados.add(new Administrativo("A008", 130, "Carlos Gómez", 2, "15-05-1980", 15, 2));
+        empleados.add(new Administrativo("A009", 131, "Ana Pérez", 1, "23-08-1985", 12, 3));
+        empleados.add(new Administrativo("A010", 132, "Luis Rodríguez", 3, "30-11-1990", 10, 1));
+        empleados.add(new Administrativo("A011", 133, "María Fernández", 0, "05-02-1995", 5, 4));
+        empleados.add(new Administrativo("A012", 105, "Fernando Álvarez", 2, "12-01-1982", 20, 3));
+        empleados.add(new Administrativo("A013", 106, "Claudia Silva", 1, "22-10-1989", 15, 2));
+        empleados.add(new Administrativo("A014", 107, "Ricardo Díaz", 0, "17-03-1993", 10, 4));
+        empleados.add(new Administrativo("A015", 108, "Verónica Castillo", 3, "05-06-1995", 8, 1));
+        
 
         // Crear empleados profesionales
         empleados.add(new Profesional("P001", 125, "Luis Fernández", 0, "11-11-1978", 10));
         empleados.add(new Profesional("P002", 126, "María Rodríguez", 2, "23-09-1982", 8));
         empleados.add(new Profesional("P003", 127, "Lucas Martinez", 1, "22-07-1989", 1));
+        empleados.add(new Profesional("P004", 201, "Marta Suárez", 1, "12-07-1978", 20));
+        empleados.add(new Profesional("P005", 202, "Jorge López", 0, "18-09-1982", 18));
+        empleados.add(new Profesional("P006", 203, "Sofía García", 2, "25-12-1987", 14));
+        empleados.add(new Profesional("P007", 204, "Diego Torres", 0, "14-04-1992", 2));
+        empleados.add(new Profesional("P008", 205, "Paula Moreno", 1, "30-07-1975", 25));
+        empleados.add(new Profesional("P009", 206, "Gonzalo Núñez", 0, "19-02-1983", 1));
+        empleados.add(new Profesional("P010", 207, "Lorena Vargas", 2, "04-09-1988", 2));
+        empleados.add(new Profesional("P011", 208, "Adrián Soto", 1, "11-12-1991", 10));
+        empleados.add(new Profesional("P012", 209, "Victoria Ríos", 0, "27-04-1994", 2));
+        empleados.add(new Profesional("P013", 307, "Mauricio Villagra", 2, "04-09-1988", 2));
+        empleados.add(new Profesional("P014", 308, "Soledad Fuentes", 2, "11-12-1991", 10));
+        empleados.add(new Profesional("P015", 309, "Valeria Valente", 0, "27-04-1950", 2));
+        
 
         return empleados;
     }
@@ -132,7 +158,7 @@ public class EmpleadoManager {
      * 
      * @param scanner El objeto Scanner para la entrada de datos del usuario.
      */
-    public void calcularImporteNetoPorEdad(Scanner scanner) {
+   /* public void calcularImporteNetoPorEdad(Scanner scanner) {
         System.out.println("Ingrese una edad mínima para calcular el importe neto acumulado:");
         int edadMinima = scanner.nextInt();
 
@@ -151,6 +177,28 @@ public class EmpleadoManager {
      * Muestra el sueldo neto de los empleados con antigüedad menor o igual a 2 años,
      * aplicando un incremento temporal del 10% al sueldo básico.
      */
+    
+    public void calcularImporteNetoPorEdad(Scanner scanner) {
+        System.out.println("Ingrese una edad mínima para calcular el importe neto acumulado:");
+        int edadMinima = scanner.nextInt();
+
+        FechaUtil fechaUtil = new FechaUtil();
+
+        double totalImporteNeto = empleados.stream()
+            .filter(empleado -> fechaUtil.calcularEdad(empleado.getFechaNacimiento()) >= edadMinima)
+            .mapToDouble(empleado -> {
+                if (empleado.getSueldoNeto() == 0) {
+                    empleado.calcularSueldo();
+                }
+                return empleado.getSueldoNeto();
+            })
+            .sum();
+
+        System.out.println("El importe neto acumulado de los empleados con edad mayor o igual a " 
+                           + edadMinima + " años es: " + totalImporteNeto);
+    }
+    
+    
     public void mostrarIncrementoTemporal() {
         System.out.println("Aplicando incremento temporal del 10% al sueldo básico de empleados con antigüedad <= 2 años...");
 

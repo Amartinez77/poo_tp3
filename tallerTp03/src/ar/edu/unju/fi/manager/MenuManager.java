@@ -15,14 +15,15 @@ public class MenuManager {
      */
     public void mostrarMenu() {
         System.out.println("Seleccione una opción:");
-        System.out.println("1. Agregar empleado");
-        System.out.println("2. Precargar empleados (20 Empleados)");
+        System.out.println("1. Agregar empleado (FORMA MANUAL)");
+        System.out.println("2. Agregar empleados (FORMA AUTOMATICA - 30 Empleados)");
         System.out.println("3. Mostrar empleados con antigüedad mayor a X años");
         System.out.println("4. Mostrar empleados cuya edad sea mayor o igual a un valor");
         System.out.println("5. Calcular importe neto acumulado para empleados mayores o iguales a una edad");
         System.out.println("6. Incrementar salario básico para empleados con antigüedad <= 2 años");
-        System.out.println("9. Mostrar empleados * todos (test)");
-        System.out.println("7. Salir");
+        System.out.println("7. Mostrar empleados * todos (test)");
+        System.out.println(" ");
+        System.out.println("9. Salir");
     }
 
     /**
@@ -61,11 +62,11 @@ public class MenuManager {
                         empleadoManager.mostrarIncrementoTemporal();
                         break;
                         
-                    case 9:
+                    case 7:
                         empleadoManager.mostrarEmpleados();
                         break;
                         
-                    case 7:
+                    case 9:
                         salir = true;
                         System.out.println("Saliendo del programa...");
                         break;
